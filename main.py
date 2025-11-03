@@ -28,8 +28,10 @@ def generate_x_post(usr_input: str) -> str:
     """
     response = client.responses.create(
         model="gpt-4.1-nano",
-        input="Write a one-sentence bedtime story about a unicorn.",
+        input=prompt,
+
     )
+    print(response)
     output_item = response.output[0]
     if isinstance(output_item, ResponseOutputMessage) and output_item.content:
         content_item = output_item.content[0]
